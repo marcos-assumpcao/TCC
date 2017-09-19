@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->prefix('admin')->namespace('Auth')->group(function () {
     Route::resource('/', 'DashboardController');
+    Route::resource('users', 'UserController');
 });
 
 Route::get('/', 'HomeController@index')->name('home');

@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
-class DashboardController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('auth.dashboard');
+        $data['users'] = User::all();
+        //dd($data);
+        return view('auth.users.index', $data);
     }
 
     /**
@@ -24,7 +27,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.users.create');
     }
 
     /**
@@ -35,7 +38,8 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->all());
+        return redirect()->route('users.edit', ['id' => $user->id]);
     }
 
     /**
@@ -57,7 +61,8 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['user'] = User::find($id);
+        return view('auth.users.edit', $data);
     }
 
     /**
