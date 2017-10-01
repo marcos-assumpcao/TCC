@@ -2,15 +2,15 @@
 
 @section('content')
 
-          <h1>Listagem de usuarios <a href="#" type="button" class="btn btn-success float-right">Novo</a></h1>
+          <h1>Listagem de usuarios <!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
 
           <table class="table">
   <thead>
     <tr>
-      <th>#</th>
+      <th>ID</th>
       <th>Nome</th>
       <th>Email</th>
-      <th>#</th>
+      <th>Comandos</th>
     </tr>
   </thead>
   <tbody>

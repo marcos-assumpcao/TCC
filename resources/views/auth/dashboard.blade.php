@@ -2,7 +2,7 @@
 
 @section('content')
 
-          <h1>Dashboard</h1>
+          <h1>Dashboard Alfatek Informática</h1>
 
           <section class="row text-center placeholders">
             <div class="col-6 col-sm-3 placeholder">

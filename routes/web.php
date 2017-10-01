@@ -23,3 +23,6 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Auth')->group(function 
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+
+
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
