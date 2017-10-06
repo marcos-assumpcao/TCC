@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Orderservice;
 
-class UserController extends Controller
+class OrderserviceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::all();
+        $data['orderservices'] = Orderservice::all();
         //dd($data);
-        return view('auth.users.list', $data);
+        return view('auth.orderservices.list', $data);
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('auth.users.create');
+        return view('auth.orderservices.create');
     }
 
     /**
@@ -38,8 +38,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->all());
-        return redirect()->route('users.edit', ['id' => $user->id]);
+        $orderservice = Orderservice::create($request->all());
+        return redirect()->route('orderservices.edit', ['id' => $orderservice->id]);
     }
 
     /**
@@ -61,8 +61,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data['user'] = User::find($id);
-        return view('auth.users.edit', $data);
+        $data['orderservice'] = Orderservice::find($id);
+        return view('auth.orderservices.edit', $data);
     }
 
     /**

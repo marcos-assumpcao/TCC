@@ -53,10 +53,16 @@
 
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('users.create') }}">Criar Usuarios</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('users.create') }}">Criar Usuarios</a>
+                            <a class="nav-link" href="{{ route('orderservices.create') }}">Criar Ordem de Serviço</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('orderservices.index') }}">Ordens de Serviços</a>
                         </li>
                     </ul>
 
