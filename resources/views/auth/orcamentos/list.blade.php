@@ -8,38 +8,28 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Cliente</th>
-      <th>Fantasia</th>
-      <th>Contato</th>
-      <th>Equipamento</th>
-      <th>Marca</th>
+      <th>Ordem de Serviço</th>
+      <th>Data Inicial</th>
+      <th>Data de Aprovação</th>
+      <th>Data de Entrega</th>
       <th>Defeito</th>
-      <th>Série</th>
-      <th>Modelo</th>
-      <th>Tensão</th>
-      <th>Cor</th>
-      <th>Ano</th>
-      <th>Anexos</th>
-      <th>Observações</th>
+      <th>Serviço/Peças</th>
+      <th>Preço</th>
+      <th>Preço total</th>
     </tr>
   </thead>
   <tbody>
     @foreach($orderservices as $orderservice)
     <tr>
       <th scope="row">{{ $user['id'] }}</th>
-      <td>{{ $orderservice['cliente'] }}</td>
-      <td>{{ $orderservice['fantasia'] }}</td>
-      <td>{{ $orderservice['contato'] }}</td>
-      <td>{{ $orderservice['equipamento'] }}</td>
-      <td>{{ $orderservice['marca'] }}</td>
+      <td>{{ $orderservice['orderservices'] }}</td>
+      <td>{{ $orderservice['data'] }}</td>
+      <td>{{ $orderservice['aprovacao'] }}</td>
+      <td>{{ $orderservice['entrega'] }}</td>
       <td>{{ $orderservice['defeito'] }}</td>
-      <td>{{ $orderservice['serie'] }}</td>
-      <td>{{ $orderservice['modelo'] }}</td>
-      <td>{{ $orderservice['tensao'] }}</td>
-      <td>{{ $orderservice['cor'] }}</td>
-      <td>{{ $orderservice['ano'] }}</td>
-      <td>{{ $orderservice['anexos'] }}</td>
-      <td>{{ $orderservice['observacao'] }}</td>
+      <td>{{ $orderservice['servico'] }}</td>
+      <td>{{ $orderservice['preco'] }}</td>
+      <td>{{ $orderservice['total'] }}</td>
       <td>
         <a href="{{ route('orderservices.edit', $orderservices['id']) }}" class="btn btn-primary">Editar</a>
         <a href="#" class="btn btn-danger">Excluir</a>

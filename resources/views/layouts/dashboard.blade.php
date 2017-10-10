@@ -64,6 +64,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('orderservices.index') }}">Ordens de Serviços</a>
                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('orcamentos.create') }}">Criar Orçamento</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('orcamentos.index') }}">Orçamentos</a>
+                        </li>
                     </ul>
 
                 </nav>

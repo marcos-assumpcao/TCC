@@ -92,15 +92,113 @@
                 </div>
             </div>
 
-            <div class="form-group{{ $errors->has('endereco') ? ' has-error' : '' }}">
-                <label for="endereco" class="col-md-4 control-label">Endereço</label>
+            <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
+                <label for="estado" class="col-md-4 control-label">Estado</label>
 
                 <div class="col-md-6">
-                    <input id="endereco" type="text" class="form-control" name="endereco" value="{{ old('endereco') }}" required autofocus>
+                    <input id="estado" type="text" class="form-control" name="estado" value="{{ old('estado') }}" required autofocus>
 
-                    @if ($errors->has('endereco'))
+                    @if ($errors->has('estado'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('endereco') }}</strong>
+                        <strong>{{ $errors->first('estado') }}</strong>
+                    </span>
+                    @endif
+                </div>
+            </div>
+
+             <div class="form-group{{ $errors->has('cep') ? ' has-error' : '' }}">
+                <label for="cep" class="col-md-4 control-label">CEP</label>
+
+                <div class="col-md-6">
+                    <input id="cep" type="text" class="form-control" name="cep" value="{{ old('cep') }}" required autofocus>
+
+                    @if ($errors->has('cep'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('cep') }}</strong>
+                    </span>
+                    @endif
+                </div>
+            </div>
+
+             <div class="form-group{{ $errors->has('site') ? ' has-error' : '' }}">
+                <label for="site" class="col-md-4 control-label">Site</label>
+
+                <div class="col-md-6">
+                    <input id="site" type="text" class="form-control" name="site" value="{{ old('site') }}" required autofocus>
+
+                    @if ($errors->has('site'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('site') }}</strong>
+                    </span>
+                    @endif
+                </div>
+            </div>
+
+             <div class="form-group{{ $errors->has('insc_estadual') ? ' has-error' : '' }}">
+                <label for="insc_estadual" class="col-md-4 control-label">Inscrição Estadual</label>
+
+                <div class="col-md-6">
+                    <input id="insc_estadual" type="text" class="form-control" name="insc_estadual" value="{{ old('insc_estadual') }}" required autofocus>
+
+                    @if ($errors->has('insc_estadual'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('insc_estadual') }}</strong>
+                    </span>
+                    @endif
+                </div>
+            </div>
+
+             <div class="form-group{{ $errors->has('cpf_cnpj') ? ' has-error' : '' }}">
+                <label for="cpf_cnpj" class="col-md-4 control-label">CPF/CNPJ</label>
+
+                <div class="col-md-6">
+                    <input id="cpf_cnpj" type="text" class="form-control" name="cpf_cnpj" value="{{ old('cpf_cnpj') }}" required autofocus>
+
+                    @if ($errors->has('cpf_cnpj'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('cpf_cnpj') }}</strong>
+                    </span>
+                    @endif
+                </div>
+            </div>
+
+             <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
+                <label for="estado" class="col-md-4 control-label">Telefone</label>
+
+                <div class="col-md-6">
+                    <input id="telefone" type="text" class="form-control" name="telefone" value="{{ old('telefone') }}" required autofocus>
+
+                    @if ($errors->has('telefone'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('telefone') }}</strong>
+                    </span>
+                    @endif
+                </div>
+            </div>
+
+             <div class="form-group{{ $errors->has('celular') ? ' has-error' : '' }}">
+                <label for="celular" class="col-md-4 control-label">Celular</label>
+
+                <div class="col-md-6">
+                    <input id="celular" type="text" class="form-control" name="celular" value="{{ old('celular') }}" required autofocus>
+
+                    @if ($errors->has('celular'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('celular') }}</strong>
+                    </span>
+                    @endif
+                </div>
+            </div>
+
+             <div class="form-group{{ $errors->has('fax') ? ' has-error' : '' }}">
+                <label for="fax" class="col-md-4 control-label">Fax</label>
+
+                <div class="col-md-6">
+                    <input id="fax" type="text" class="form-control" name="fax" value="{{ old('fax') }}" required autofocus>
+
+                    @if ($errors->has('fax'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('fax') }}</strong>
                     </span>
                     @endif
                 </div>

@@ -15,7 +15,7 @@ class Orderservice extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'users', 'contato', 'equipamento', 'marca', 'defeito', 'serie', 'modelo', 'tensao', 'cor', 'ano', 'patrimonio', 'chamado',
+        'data', 'aprovacao', 'entrega', 'defeito', 'servico', 'preco', 'total',
     ];
 
     /**

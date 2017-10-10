@@ -21,6 +21,7 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Auth')->group(function 
     Route::resource('/', 'DashboardController');
     Route::resource('users', 'UserController');
     Route::resource('orderservices', 'OrderserviceController');
+    Route::resource('orcamentos', 'OrcamentoController');
 });
 
 Route::get('/', 'HomeController@index')->name('home');

@@ -22,20 +22,6 @@
                 </div>
             </div>
 
-            <div class="form-group{{ $errors->has('fantasia') ? ' has-error' : '' }}">
-                <label for="fantasia" class="col-md-4 control-label">Nome Fantasia</label>
-
-                <div class="col-md-6">
-                    <input id="fantasia" type="text" class="form-control" name="fantasia" value="{{ old('fantasia') }}" required>
-
-                    @if ($errors->has('fantasia'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('fantasia') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-
             <div class="form-group{{ $errors->has('contato') ? ' has-error' : '' }}">
                 <label for="contato" class="col-md-4 control-label">Contato</label>
 
@@ -162,15 +148,15 @@
                 </div>
             </div>
 
-            <div class="form-group{{ $errors->has('anexo') ? ' has-error' : '' }}">
-                <label for="anexo" class="col-md-4 control-label">Anexos</label>
+            <div class="form-group{{ $errors->has('patrimonio') ? ' has-error' : '' }}">
+                <label for="patrimonio" class="col-md-4 control-label">Patrimonio</label>
 
                 <div class="col-md-6">
-                    <input id="anexo" type="text" class="form-control" name="anexo" required>
+                    <input id="patrimonio" type="text" class="form-control" name="patrimonio" required>
 
-                    @if ($errors->has('anexo'))
+                    @if ($errors->has('patrimonio'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('anexo') }}</strong>
+                        <strong>{{ $errors->first('patrimonio') }}</strong>
                     </span>
                     @endif
                 </div>
@@ -185,20 +171,6 @@
                     @if ($errors->has('observacao'))
                     <span class="help-block">
                         <strong>{{ $errors->first('observacao') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('contato') ? ' has-error' : '' }}">
-                <label for="contato" class="col-md-4 control-label">Contato</label>
-
-                <div class="col-md-6">
-                    <input id="contato" type="text" class="form-control" name="contato" required>
-
-                    @if ($errors->has('contato'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('contato') }}</strong>
                     </span>
                     @endif
                 </div>
