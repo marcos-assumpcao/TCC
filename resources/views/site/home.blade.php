@@ -1,5 +1,5 @@
 @extends('layouts.site')
 
 @section('content')
-home
+ljkgjhfhjghjghjghjgjhghjgjhgjhgjhgjhg
 @endsection

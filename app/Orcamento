@@ -3,9 +3,9 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Orderservice as Authenticatable;
+use Illuminate\Foundation\Auth\Orcamento as Authenticatable;
 
-class Orderservice extends Authenticatable
+class Orcamento extends Authenticatable
 {
     use Notifiable;
 

@@ -8,15 +8,15 @@
         <form class="form-horizontal" method="POST" action="{{ route('orderservices.store') }}">
             {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('cliente') ? ' has-error' : '' }}">
-                <label for="cliente" class="col-md-4 control-label">Cliente</label>
+            <div class="form-group{{ $errors->has('users') ? ' has-error' : '' }}">
+                <label for="users" class="col-md-4 control-label">Cliente</label>
 
                 <div class="col-md-6">
-                    <input id="cliente" type="text" class="form-control" name="cliente" value="{{ old('cliente') }}" required autofocus>
+                    <input id="users" type="text" class="form-control" name="users" value="{{ old('users') }}" required autofocus>
 
-                    @if ($errors->has('cliente'))
+                    @if ($errors->has('users'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('cliente') }}</strong>
+                        <strong>{{ $errors->first('users') }}</strong>
                     </span>
                     @endif
                 </div>
@@ -162,15 +162,15 @@
                 </div>
             </div>
 
-            <div class="form-group{{ $errors->has('observacao') ? ' has-error' : '' }}">
-                <label for="observacao" class="col-md-4 control-label">Observações</label>
+            <div class="form-group{{ $errors->has('chamado') ? ' has-error' : '' }}">
+                <label for="chamado" class="col-md-4 control-label">Chamado</label>
 
                 <div class="col-md-6">
-                    <input id="observacao" type="text" class="form-control" name="observacao" required>
+                    <input id="chamado" type="text" class="form-control" name="chamado" required>
 
-                    @if ($errors->has('observacao'))
+                    @if ($errors->has('chamado'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('observacao') }}</strong>
+                        <strong>{{ $errors->first('chamado') }}</strong>
                     </span>
                     @endif
                 </div>

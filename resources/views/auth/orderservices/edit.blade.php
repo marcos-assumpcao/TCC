@@ -162,15 +162,15 @@
                 </div>
             </div>
 
-            <div class="form-group{{ $errors->has('observacao') ? ' has-error' : '' }}">
-                <label for="observacao" class="col-md-4 control-label">Observações</label>
+            <div class="form-group{{ $errors->has('chamado') ? ' has-error' : '' }}">
+                <label for="chamado" class="col-md-4 control-label">Chamado</label>
 
                 <div class="col-md-6">
-                    <input id="observacao" type="text" class="form-control" name="observacao" required>
+                    <input id="chamado" type="text" class="form-control" name="chamado" required>
 
-                    @if ($errors->has('observacao'))
+                    @if ($errors->has('chamado'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('observacao') }}</strong>
+                        <strong>{{ $errors->first('chamado') }}</strong>
                     </span>
                     @endif
                 </div>
