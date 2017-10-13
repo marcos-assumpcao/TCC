@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Listagem de Ordens de Serviços <!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
+<h1>Listagem de Orçamentos <!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
 
 <table class="table">
   <thead>
@@ -10,34 +10,35 @@
       <th>ID</th>
       <th>Ordem de Serviço</th>
       <th>Data Inicial</th>
-      <th>Data de Aprovação</th>
+      <!--<th>Data de Aprovação</th>
       <th>Data de Entrega</th>
       <th>Defeito</th>
       <th>Serviço/Peças</th>
-      <th>Preço</th>
+      <th>Preço</th>-->
       <th>Preço total</th>
+      <th>Comandos</th>
     </tr>
   </thead>
   <tbody>
-    @foreach($orderservices as $orderservice)
+    @foreach($orcamentos as $orcamento)
     <tr>
-      <th scope="row">{{ $user['id'] }}</th>
-      <td>{{ $orderservice['orderservices'] }}</td>
-      <td>{{ $orderservice['data'] }}</td>
-      <td>{{ $orderservice['aprovacao'] }}</td>
-      <td>{{ $orderservice['entrega'] }}</td>
-      <td>{{ $orderservice['defeito'] }}</td>
-      <td>{{ $orderservice['servico'] }}</td>
-      <td>{{ $orderservice['preco'] }}</td>
-      <td>{{ $orderservice['total'] }}</td>
+      <th scope="row">{{ $orcamento['id'] }}</th>
+      <td>{{ $orcamento['orderservices'] }}</td>
+      <td>{{ $orcamento['data'] }}</td>
+      <!--<td>{{ $orcamento['aprovacao'] }}</td>
+      <td>{{ $orcamento['entrega'] }}</td>
+      <td>{{ $orcamento['defeito'] }}</td>
+      <td>{{ $orcamento['servico'] }}</td>
+      <td>{{ $orcamento['preco'] }}</td>-->
+      <td>{{ $orcamento['total'] }}</td>
       <td>
-        <a href="{{ route('orderservices.edit', $orderservices['id']) }}" class="btn btn-primary">Editar</a>
+        <a href="{{ route('orcamentos.edit', $orcamento['id']) }}" class="btn btn-primary">Editar</a>
+        <a href="{{ route('orcamentos.show', $orcamento['id']) }}" class="btn btn-info">ver</a>
         <a href="#" class="btn btn-danger">Excluir</a>
       </td>
     </tr>
     @endforeach
   </tbody>
 </table>
-
 
 @endsection

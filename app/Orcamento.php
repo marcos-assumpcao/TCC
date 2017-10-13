@@ -15,7 +15,7 @@ class Orcamento extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'data', 'aprovacao', 'entrega', 'defeito', 'servico', 'preco', 'total',
+        'orderservices', 'data', 'aprovacao', 'entrega', 'defeito', 'servico', 'preco', 'total',
     ];
 
     /**

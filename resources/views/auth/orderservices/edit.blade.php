@@ -2,21 +2,21 @@
 
 @section('content')
 
-<h1>Editar Usuário {{ $user->name }}<a href="#" type="button" class="btn btn-success float-right">Salvar</a></h1>
+<h1>Editar Ordem de Serviço: {{ $orderservice->id }}<!--<a href="#" type="button" class="btn btn-success float-right">Salvar</a>--></h1>
 <div class="panel panel-default">
     <div class="panel-body">
         <form class="form-horizontal" method="POST" action="{{ route('orderservices.store') }}">
             {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('cliente') ? ' has-error' : '' }}">
-                <label for="cliente" class="col-md-4 control-label">Cliente</label>
+            <div class="form-group{{ $errors->has('users') ? ' has-error' : '' }}">
+                <label for="users" class="col-md-4 control-label">Cliente</label>
 
                 <div class="col-md-6">
-                    <input id="cliente" type="text" class="form-control" name="cliente" value="{{ old('cliente') }}" required autofocus>
+                    <input id="users" type="text" class="form-control" name="users" value="{{ ($orderservice['users']) }}" required autofocus>
 
-                    @if ($errors->has('cliente'))
+                    @if ($errors->has('users'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('cliente') }}</strong>
+                        <strong>{{ $errors->first('users') }}</strong>
                     </span>
                     @endif
                 </div>
@@ -26,7 +26,7 @@
                 <label for="contato" class="col-md-4 control-label">Contato</label>
 
                 <div class="col-md-6">
-                    <input id="contato" type="text" class="form-control" name="contato" required>
+                    <input id="contato" type="text" class="form-control" name="contato" value="{{ ($orderservice['contato']) }}" required autofocus>
 
                     @if ($errors->has('contato'))
                     <span class="help-block">
@@ -37,10 +37,10 @@
             </div>
 
             <div class="form-group{{ $errors->has('equipamento') ? ' has-error' : '' }}">
-                <label for="contato" class="col-md-4 control-label">Equipamento</label>
+                <label for="equipamento" class="col-md-4 control-label">Equipamento</label>
 
                 <div class="col-md-6">
-                    <input id="equipamento" type="text" class="form-control" name="equipamento" required>
+                    <input id="equipamento" type="text" class="form-control" name="equipamento" value="{{ ($orderservice['equipamento']) }}" required autofocus>
 
                     @if ($errors->has('equipamento'))
                     <span class="help-block">
@@ -54,7 +54,7 @@
                 <label for="marca" class="col-md-4 control-label">Marca</label>
 
                 <div class="col-md-6">
-                    <input id="marca" type="text" class="form-control" name="marca" required>
+                    <input id="marca" type="text" class="form-control" name="marca" value="{{ ($orderservice['marca']) }}" required autofocus>
 
                     @if ($errors->has('marca'))
                     <span class="help-block">
@@ -68,7 +68,7 @@
                 <label for="defeito" class="col-md-4 control-label">Defeito</label>
 
                 <div class="col-md-6">
-                    <input id="defeito" type="text" class="form-control" name="defeito" required>
+                    <input id="defeito" type="text" class="form-control" name="defeito" value="{{ ($orderservice['defeito']) }}" required autofocus>
 
                     @if ($errors->has('defeito'))
                     <span class="help-block">
@@ -82,7 +82,7 @@
                 <label for="serie" class="col-md-4 control-label">Número de Série</label>
 
                 <div class="col-md-6">
-                    <input id="serie" type="text" class="form-control" name="serie" required>
+                    <input id="serie" type="text" class="form-control" name="serie" value="{{ ($orderservice['serie']) }}" required autofocus>
 
                     @if ($errors->has('serie'))
                     <span class="help-block">
@@ -96,7 +96,7 @@
                 <label for="modelo" class="col-md-4 control-label">Modelo</label>
 
                 <div class="col-md-6">
-                    <input id="modelo" type="text" class="form-control" name="modelo" required>
+                    <input id="modelo" type="text" class="form-control" name="modelo" value="{{ ($orderservice['modelo']) }}" required autofocus>
 
                     @if ($errors->has('modelo'))
                     <span class="help-block">
@@ -110,7 +110,7 @@
                 <label for="tensao" class="col-md-4 control-label">Tensão</label>
 
                 <div class="col-md-6">
-                    <input id="tensao" type="text" class="form-control" name="tensao" required>
+                    <input id="tensao" type="text" class="form-control" name="tensao" value="{{ ($orderservice['tensao']) }}" required autofocus>
 
                     @if ($errors->has('tensao'))
                     <span class="help-block">
@@ -124,7 +124,7 @@
                 <label for="cor" class="col-md-4 control-label">Cor</label>
 
                 <div class="col-md-6">
-                    <input id="cor" type="text" class="form-control" name="cor" required>
+                    <input id="cor" type="text" class="form-control" name="cor" value="{{ ($orderservice['cor']) }}" required autofocus>
 
                     @if ($errors->has('cor'))
                     <span class="help-block">
@@ -138,7 +138,7 @@
                 <label for="ano" class="col-md-4 control-label">Ano</label>
 
                 <div class="col-md-6">
-                    <input id="ano" type="text" class="form-control" name="ano" required>
+                    <input id="ano" type="text" class="form-control" name="ano" value="{{ ($orderservice['ano']) }}" required autofocus>
 
                     @if ($errors->has('ano'))
                     <span class="help-block">
@@ -152,7 +152,7 @@
                 <label for="patrimonio" class="col-md-4 control-label">Patrimonio</label>
 
                 <div class="col-md-6">
-                    <input id="patrimonio" type="text" class="form-control" name="patrimonio" required>
+                    <input id="patrimonio" type="text" class="form-control" name="patrimonio" value="{{ ($orderservice['patrimonio']) }}" required autofocus>
 
                     @if ($errors->has('patrimonio'))
                     <span class="help-block">
@@ -166,7 +166,7 @@
                 <label for="chamado" class="col-md-4 control-label">Chamado</label>
 
                 <div class="col-md-6">
-                    <input id="chamado" type="text" class="form-control" name="chamado" required>
+                    <input id="chamado" type="text" class="form-control" name="chamado" value="{{ ($orderservice['chamado']) }}" required autofocus>
 
                     @if ($errors->has('chamado'))
                     <span class="help-block">

@@ -14,3 +14,11 @@
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('App.Orderservice.{id}', function ($orderservice, $id) {
+    return (int) $orderservice->id === (int) $id;
+});
+
+Broadcast::channel('App.Orcamento.{id}', function ($orcamento, $id) {
+    return (int) $orcamento->id === (int) $id;
+});

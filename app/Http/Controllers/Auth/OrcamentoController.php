@@ -27,7 +27,7 @@ class OrcamentoController extends Controller
      */
     public function create()
     {
-        return view('auth.orderservices.create');
+        return view('auth.orcamentos.create');
     }
 
     /**
@@ -50,7 +50,8 @@ class OrcamentoController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['orcamento'] = Orcamento::find($id);
+        return view('auth.orcamentos.display', $data);
     }
 
     /**
@@ -59,6 +60,7 @@ class OrcamentoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
         $data['orcamento'] = Orcamento::find($id);

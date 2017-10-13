@@ -5,7 +5,7 @@
 <h1>Novo Orçamento <!--<a href="#" type="button" class="btn btn-success float-right">Salvar</a>--></h1>
 <div class="panel panel-default">
     <div class="panel-body">
-        <form class="form-horizontal" method="POST" action="{{ route('orderservices.store') }}">
+        <form class="form-horizontal" method="POST" action="{{ route('orcamentos.store') }}">
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('orderservices') ? ' has-error' : '' }}">
