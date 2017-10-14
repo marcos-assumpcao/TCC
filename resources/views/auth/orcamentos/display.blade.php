@@ -2,39 +2,47 @@
 
 @section('content')
 
-<h1>Orçamento <!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
+<h1>Orçamento da Ordem de Serviço: {{ $orcamento->orderservices }}<!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th scope="row">1</th>
-      <th>ID</th>
-      <th>Ordem de Serviço</th>
-      <th>Data Inicial</th>
-      <th>Data de Aprovação</th>
-      <th>Data de Entrega</th>
-      <th>Defeito</th>
-      <th>Serviço/Peças</th>
-      <th>Preço</th>
-      <th>Preço total</th>
-      <th>Comandos</th>
+      <td>ID:</td>
+      <td>{{ $orcamento->id }}</td> 
+    </tr>
     <tr>
+      <td>Ordem de Serviço:</td>
+      <td>{{ $orcamento->orderservices }}</td>
+    </tr>
+    <tr>
+      <td>Data Inicial:</td>
+      <td>{{ $orcamento->data }}</td>
+    </tr>
+    <tr>
+      <td>Data de Aprovação:</td>
+      <td>{{ $orcamento->aprovacao }}</td>
+    </tr>
+    <tr>
+      <td>Data de Entrega:</td>
+      <td>{{ $orcamento->entrega }}</td>
+    </tr>
+    <tr>
+      <td>Defeito:</td>
+      <td>{{ $orcamento->defeito }}</td>
+    </tr>
+    <tr>
+      <td>Serviço/Peças:</td>
+      <td>{{ $orcamento->servico }}</td>
+    </tr>
+    <tr>
+      <td>Preço:</td>
+      <td>{{ $orcamento->preco }}</td>
+    </tr>
+    <tr>
+      <td>Preço Total:</td>
+      <td>{{ $orcamento->total }}</td>
+    </tr>
   </thead>
   <tbody>
-    @foreach($orcamentos as $orcamento)
-    <tr>
-      <th scope="row">{{ $orcamento['id'] }}</th>
-      <th>{{ $orcamento['orderservices'] }}</th>
-      <th>{{ $orcamento['data'] }}</th>
-      <th>{{ $orcamento['aprovacao'] }}</th>
-      <th>{{ $orcamento['entrega'] }}</th>
-      <th>{{ $orcamento['defeito'] }}</th>
-      <th>{{ $orcamento['servico'] }}</th>
-      <th>{{ $orcamento['preco'] }}</th>
-      <th>{{ $orcamento['total'] }}</th>
-    <tr>     
-    @endforeach
-    </tbody>
-  </table>
 
 @endsection

@@ -50,7 +50,8 @@ class OrderserviceController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['orderservice'] = Orderservice::find($id);
+        return view('auth.orderservices.display', $data);
     }
 
     /**

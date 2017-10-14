@@ -41,6 +41,7 @@
       <td>{{ $orderservice['chamado'] }}</td>-->
       <td>
         <a href="{{ route('orderservices.edit', $orderservice['id']) }}" class="btn btn-primary">Editar</a>
+        <a href="{{ route('orderservices.show', $orderservice['id']) }}" class="btn btn-info">ver</a>
         <a href="#" class="btn btn-danger">Excluir</a>
       </td>
     </tr>
