@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <td>ID:</td>
-      <td>{{ $user['id'] }}</td> 
+      <td>{{ $user->id }}</td> 
     </tr>
     <tr>
       <td>Nome:</td>

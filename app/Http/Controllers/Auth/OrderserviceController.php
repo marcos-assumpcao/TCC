@@ -17,7 +17,7 @@ class OrderserviceController extends Controller
     {
         $data['orderservices'] = Orderservice::all();
         //dd($data);
-        return view('auth.orderservices.list', $data);
+        return view('auth.orderservices.list_all', $data);
     }
 
     /**

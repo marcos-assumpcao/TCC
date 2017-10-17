@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $data['users'] = User::all();
         //dd($data);
-        return view('auth.users.list', $data);
+        return view('auth.users.list_all', $data);
     }
 
     /**

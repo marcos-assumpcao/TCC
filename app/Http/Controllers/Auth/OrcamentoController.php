@@ -17,7 +17,7 @@ class OrcamentoController extends Controller
     {
         $data['orcamentos'] = Orcamento::all();
         //dd($data);
-        return view('auth.orcamentos.list', $data);
+        return view('auth.orcamentos.list_all', $data);
     }
 
     /**
@@ -88,5 +88,11 @@ class OrcamentoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function approve ($id)
+    {
+        $data['orcamento'] = Orcamento::find($id);
+        return view('auth.orcamentos.budget', $data);
     }
 }
