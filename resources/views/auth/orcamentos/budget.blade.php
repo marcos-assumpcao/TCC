@@ -1,3 +1,7 @@
+@extends('layouts.dashboard')
+
+@section('content')
+
 <h1>Orçamento da Ordem de Serviço: {{ $orcamento->orderservices }}<!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
 
 <table class="table">

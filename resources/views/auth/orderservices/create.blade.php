@@ -12,7 +12,13 @@
                 <label for="users" class="col-md-4 control-label">Cliente</label>
 
                 <div class="col-md-6">
-                    <input id="users" type="text" class="form-control" name="users" value="{{ old('users') }}" required autofocus>
+                 
+
+                    <select name="user_id" class="form-control">
+                        @foreach($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
+                    </select>
 
                     @if ($errors->has('users'))
                     <span class="help-block">

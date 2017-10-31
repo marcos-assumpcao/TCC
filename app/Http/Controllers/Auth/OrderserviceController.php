@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Orderservice;
+use App\OrderService;
+use App\User;
 
 class OrderserviceController extends Controller
 {
@@ -27,7 +28,8 @@ class OrderserviceController extends Controller
      */
     public function create()
     {
-        return view('auth.orderservices.create');
+        $data['users'] = User::all();
+        return view('auth.orderservices.create', $data);
     }
 
     /**
@@ -38,7 +40,7 @@ class OrderserviceController extends Controller
      */
     public function store(Request $request)
     {
-        $orderservice = Orderservice::create($request->all());
+        $orderservice = OrderService::create($request->all());
         return redirect()->route('orderservices.edit', ['id' => $orderservice->id]);
     }
 
