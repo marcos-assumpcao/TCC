@@ -8,11 +8,10 @@
         <form class="form-horizontal" method="POST" action="{{ route('orderservices.store') }}">
             {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('users') ? ' has-error' : '' }}">
-                <label for="users" class="col-md-4 control-label">Cliente</label>
+            <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
+                <label for="user_id" class="col-md-4 control-label">Cliente</label>
 
                 <div class="col-md-6">
-                 
 
                     <select name="user_id" class="form-control">
                         @foreach($users as $user)
@@ -20,9 +19,9 @@
                         @endforeach
                     </select>
 
-                    @if ($errors->has('users'))
+                    @if ($errors->has('user_id'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('users') }}</strong>
+                        <strong>{{ $errors->first('user_id') }}</strong>
                     </span>
                     @endif
                 </div>

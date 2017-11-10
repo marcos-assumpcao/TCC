@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <td>Ordem de Serviço:</td>
-      <td>{{ $orcamento->orderservices }}</td>
+      <td>{{ $orcamento->order_service_id }}</td>
     </tr>
     <tr>
       <td>Data Inicial:</td>

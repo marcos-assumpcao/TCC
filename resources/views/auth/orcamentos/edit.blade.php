@@ -12,7 +12,7 @@
                 <label for="orderservices" class="col-md-4 control-label">Ordem de Serviço</label>
 
                 <div class="col-md-6">
-                    <input id="orderservices" type="text" class="form-control" name="orderservices" value="{{ ($orcamento['orderservices']) }}" required autofocus>
+                    <input id="orderservices" type="text" class="form-control" name="orderservices" value="{{ $orcamento['order_service_id'] }}" required autofocus>
 
                     @if ($errors->has('orderservices'))
                     <span class="help-block">

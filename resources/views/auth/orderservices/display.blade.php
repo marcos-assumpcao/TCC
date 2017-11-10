@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <td>Cliente:</td>
-      <td>{{ $orderservice['users'] }}</td> 
+      <td>{{ $orderservice->user->name }}</td> 
     </tr>
     <tr>
       <td>Contato:</td>

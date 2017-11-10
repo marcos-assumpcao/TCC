@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Orçamento da Ordem de Serviço: {{ $orcamento->orderservices }}<!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
+<h1>Orçamento da Ordem de Serviço: {{ $orcamento->order_service_id }}<!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
 
 <table class="table">
   <thead>
@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <td>Ordem de Serviço:</td>
-      <td>{{ $orcamento->orderservices }}</td>
+      <td>{{ $orcamento->order_service_id }}</td>
     </tr>
     <tr>
       <td>Data Inicial:</td>

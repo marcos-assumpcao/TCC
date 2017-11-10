@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Orcamento;
+use App\OrderService;
 
 class OrcamentoController extends Controller
 {
@@ -27,7 +28,8 @@ class OrcamentoController extends Controller
      */
     public function create()
     {
-        return view('auth.orcamentos.create');
+        $data['orderservices'] = OrderService::all();
+        return view('auth.orcamentos.create', $data);
     }
 
     /**

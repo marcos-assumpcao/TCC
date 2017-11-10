@@ -5,18 +5,30 @@
 <h1>Editar Ordem de Serviço: {{ $orderservice->id }}<!--<a href="#" type="button" class="btn btn-success float-right">Salvar</a>--></h1>
 <div class="panel panel-default">
     <div class="panel-body">
-        <form class="form-horizontal" method="POST" action="{{ route('orderservices.store') }}">
+        <form class="form-horizontal" method="POST" action="{{ route('orderservices.update', $orderservice['id'] ) }}">
+            <input name="_method" type="hidden" value="PUT">
             {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('users') ? ' has-error' : '' }}">
-                <label for="users" class="col-md-4 control-label">Cliente</label>
+            <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
+                <label for="user_id" class="col-md-4 control-label">Cliente</label>
 
                 <div class="col-md-6">
-                    <input id="users" type="text" class="form-control" name="users" value="{{ ($orderservice['users']) }}" required autofocus>
 
-                    @if ($errors->has('users'))
+                    <select name="user_id" class="form-control">
+                        @foreach($users as $user)
+                            <option value="{{ $user->id }}" 
+
+                                @if($user->id == $orderservice['user_id'])
+                                selected="" 
+                                @endif
+
+                                >{{ $user->name }}</option>
+                        @endforeach
+                    </select>
+
+                    @if ($errors->has('user_id'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('users') }}</strong>
+                        <strong>{{ $errors->first('user_id') }}</strong>
                     </span>
                     @endif
                 </div>

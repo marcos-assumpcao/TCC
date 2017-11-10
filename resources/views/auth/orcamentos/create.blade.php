@@ -8,15 +8,20 @@
         <form class="form-horizontal" method="POST" action="{{ route('orcamentos.store') }}">
             {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('orderservices') ? ' has-error' : '' }}">
-                <label for="orderservices" class="col-md-4 control-label">Ordem de Serviço</label>
+            <div class="form-group{{ $errors->has('order_service_id') ? ' has-error' : '' }}">
+                <label for="order_service_id" class="col-md-4 control-label">Cliente</label>
 
                 <div class="col-md-6">
-                    <input id="orderservices" type="text" class="form-control" name="orderservices" value="{{ old('orderservices') }}" required autofocus>
 
-                    @if ($errors->has('orderservices'))
+                    <select name="order_service_id" class="form-control">
+                        @foreach($orderservices as $orderservice)
+                            <option value="{{ $orderservice->id }}">{{ $orderservice->id }}</option>
+                        @endforeach
+                    </select>
+
+                    @if ($errors->has('order_service_id'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('orderservices') }}</strong>
+                        <strong>{{ $errors->first('order_service_id') }}</strong>
                     </span>
                     @endif
                 </div>

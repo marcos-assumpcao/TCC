@@ -16,8 +16,8 @@ class OrderserviceController extends Controller
      */
     public function index()
     {
-        $data['orderservices'] = Orderservice::all();
-        //dd($data);
+        $data['orderservices'] = OrderService::all();
+        //dd($data['orderservices'][0]->user);
         return view('auth.orderservices.list_all', $data);
     }
 
@@ -64,6 +64,7 @@ class OrderserviceController extends Controller
      */
     public function edit($id)
     {
+        $data['users'] = User::all();
         $data['orderservice'] = Orderservice::find($id);
         return view('auth.orderservices.edit', $data);
     }
@@ -77,7 +78,8 @@ class OrderserviceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $orderservice = OrderService::find($id)->update($request->all());
+        return redirect()->route('orderservices.edit', ['id' => $id]);
     }
 
     /**
@@ -88,6 +90,7 @@ class OrderserviceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Orderservice::destroy($id);
+        return redirect()->route('orderservices.index');
     }
 }

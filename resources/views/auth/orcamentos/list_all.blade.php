@@ -23,7 +23,7 @@
     @foreach($orcamentos as $orcamento)
     <tr>
       <th scope="row">{{ $orcamento['id'] }}</th>
-      <td>{{ $orcamento['orderservices'] }}</td>
+      <td>{{ $orcamento -> order_service_id }}</td>
       <td>{{ $orcamento['data'] }}</td>
       <!--<td>{{ $orcamento['aprovacao'] }}</td>
       <td>{{ $orcamento['entrega'] }}</td>

@@ -2,28 +2,11 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Orcamento as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Orcamento extends Authenticatable
+class Orcamento extends Model
 {
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'orderservices', 'data', 'aprovacao', 'entrega', 'defeito', 'servico', 'preco', 'total',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
+    	'order_service_id', 'data', 'aprovacao', 'entrega', 'defeito', 'servico', 'preco', 'total',
     ];
 }

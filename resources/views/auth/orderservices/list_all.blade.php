@@ -25,9 +25,10 @@
   </thead>
   <tbody>
     @foreach($orderservices as $orderservice)
+    
     <tr>
       <th scope="row">{{ $orderservice['id'] }}</th>
-      <td>{{ $orderservice['users'] }}</td>
+      <td>{{ $orderservice->user->name }}</td>
       <td>{{ $orderservice['contato'] }}</td>
       <td>{{ $orderservice['equipamento'] }}</td>
       <td>{{ $orderservice['marca'] }}</td>
@@ -42,10 +43,16 @@
       <td>
         <a href="{{ route('orderservices.edit', $orderservice['id']) }}" class="btn btn-primary">Editar</a>
         <a href="{{ route('orderservices.show', $orderservice['id']) }}" class="btn btn-info">ver</a>
-        <a href="#" class="btn btn-danger">Excluir</a>
+
+        <form method="POST" action="{{ route('orderservices.destroy', $orderservice['id'] ) }}">
+            <input name="_method" type="hidden" value="DELETE">
+            {{ csrf_field() }}
+          <button tipe="submmit" class="btn btn-danger">Excluir</button>
+        </form>
       </td>
     </tr>
     @endforeach
+    
   </tbody>
 </table>
 
