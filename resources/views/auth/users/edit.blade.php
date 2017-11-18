@@ -5,7 +5,8 @@
 <h1>Editar Usuário {{ $user->name }}<!--<a href="#" type="button" class="btn btn-success float-right">Salvar</a>--></h1>
 <div class="panel panel-default">
     <div class="panel-body">
-        <form class="form-horizontal" method="POST" action="{{ route('users.store') }}">
+        <form class="form-horizontal" method="POST" action="{{ route('users.update', $user['id'] ) }}">
+            <input name="_method" type="hidden" value="PUT">
             {{ csrf_field() }}
             
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -243,7 +244,7 @@
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
                     <button type="submit" class="btn btn-primary">
-                        Register
+                        Salvar
                     </button>
                 </div>
             </div>

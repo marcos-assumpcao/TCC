@@ -15,9 +15,21 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::all();
-        //dd($data);
-        return view('auth.users.list_all', $data);
+        /**
+         * Grupos de Usuario
+         * =====================
+         * 1 - Administrador
+         * 2 - Colaborador
+         * 3 - Usuario
+         */
+        if(Auth()->user()->grupo == 1 && 2){
+            $data['users'] = User::all();
+            //dd($data);
+            return view('auth.users.list_all', $data);
+        }elseif (Auth()->user()->grupo == 3) {
+            $data['users'] = User::where([Auth()->user()->id])->get();
+        }
+        
     }
 
     /**
@@ -27,6 +39,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        if(Auth()->user()->grupo != 1){
+            return 'Atenção: Acesso negado - usuario não autorizado!';
+        }
         return view('auth.users.create');
     }
 
@@ -75,7 +90,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id)->update($request->all());
+        return redirect()->route('users.edit', ['id' => $id]);
     }
 
     /**
@@ -86,6 +102,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect()->route('users.index');
     }
 }

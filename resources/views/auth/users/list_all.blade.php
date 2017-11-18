@@ -2,7 +2,8 @@
 
 @section('content')
 
-          <h1>Listagem de usuarios <!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
+<h1>Listagem de usuarios <!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
           <table class="table">
   <thead>
@@ -24,6 +25,7 @@
       <th>FAx</th>-->
       <th>Email</th>
       <th>Comandos</th>
+      <th><i class="fa fa-trash"></i></th>
     </tr>
   </thead>
   <tbody>
@@ -48,7 +50,21 @@
       <td>
         <a href="{{ route('users.edit', $user['id']) }}" class="btn btn-primary">Editar</a>
         <a href="{{ route('users.show', $user['id']) }}" class="btn btn-info">ver</a>
-        <a href="#" class="btn btn-danger">Excluir</a>
+      <td>
+        
+        <!--Grupos de Usuario
+        =====================
+        1 - Administrador
+        2 - Colaborador
+        3 - Usuario-->
+        @if(Auth::user()->grupo == 1)
+        <form method="POST" action="{{ route('users.destroy', $user['id']) }}">
+            <input name="_method" type="hidden" value="DELETE">
+            {{ csrf_field() }}
+          <button tipe="submmit" class="btn btn-danger">Excluir</button>
+        </form>
+        @endif
+      </td>
       </td>
     </tr>
     @endforeach

@@ -9,7 +9,7 @@
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('order_service_id') ? ' has-error' : '' }}">
-                <label for="order_service_id" class="col-md-4 control-label">Cliente</label>
+                <label for="order_service_id" class="col-md-4 control-label">Ordem de Serviço</label>
 
                 <div class="col-md-6">
 
@@ -128,7 +128,7 @@
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
                     <button type="submit" class="btn btn-primary">
-                        Register
+                        Salvar
                     </button>
                 </div>
             </div>

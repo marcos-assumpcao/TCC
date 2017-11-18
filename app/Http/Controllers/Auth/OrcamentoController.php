@@ -16,9 +16,21 @@ class OrcamentoController extends Controller
      */
     public function index()
     {
-        $data['orcamentos'] = Orcamento::all();
-        //dd($data);
-        return view('auth.orcamentos.list_all', $data);
+        /**
+         * Grupos de Usuario
+         * =====================
+         * 1 - Administrador
+         * 2 - Colaborador
+         * 3 - Usuario
+         */
+        if(Auth()->user()->grupo == 1 && 2){
+            $data['orcamentos'] = Orcamento::all();
+            //dd($data);
+            return view('auth.orcamentos.list_all', $data);
+        }ifelse(Auth()->user()->grupo == 3) {
+            $data['orcamentos'] = Orcamento::where(['order_service_id' => Auth()->user()->id])->get();
+        } 
+           
     }
 
     /**
@@ -89,7 +101,8 @@ class OrcamentoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Orcamento::destroy($id);
+        return redirect()->route('orcamentos.index');
     }
 
     public function approve ($id)

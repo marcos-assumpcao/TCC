@@ -2,8 +2,8 @@
 
 @section('content')
 
-<h1>Listagem de Orçamentos Cliente<!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
-
+<h1>Orçamentos de Cliente</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <table class="table">
   <thead>
     <tr>
@@ -17,6 +17,7 @@
       <th>Preço</th>-->
       <th>Preço total</th>
       <th>Comandos</th>
+      <th><i class="fa fa-trash"></i></th>
     </tr>
   </thead>
   <tbody>
@@ -32,10 +33,41 @@
       <td>{{ $orcamento['preco'] }}</td>-->
       <td>{{ $orcamento['total'] }}</td>
       <td>
+        <!--Aprovação de Orçamento
+      ==========================
+      orcamentos[status]
+      0 - Aguardendo Atendimento
+      1 - Aguardando Aprovação
+      2 - Aprovado
+      3 - Reprovado-->
+      
+        @if($orcamento['status']  == 1)
         <a href="{{ route('orcamentos.approve', $orcamento['id']) }}" class="btn btn-success">Orçamento</a>
+        @endif
+        <!--Grupos de Usuario
+        =====================
+        1 - Administrador
+        2 - Colaborador
+        3 - Usuario-->
+        @if(Auth::user()->grupo == 1 && 2)
         <a href="{{ route('orcamentos.edit', $orcamento['id']) }}" class="btn btn-primary">Editar</a>
+        @endif
         <a href="{{ route('orcamentos.show', $orcamento['id']) }}" class="btn btn-info">ver</a>
-        <a href="#" class="btn btn-danger">Excluir</a>
+      </td>
+      <td>
+        <!--Grupos de Usuario
+        =====================
+        1 - Administrador
+        2 - Colaborador
+        3 - Usuario-->
+        @if(Auth::user()->grupo == 1)
+        <form method="POST" action="{{ route('orcamentos.destroy', $orcamento['id']) }}">
+            <input name="_method" type="hidden" value="DELETE">
+            {{ csrf_field() }}
+          <button tipe="submmit" class="btn btn-danger">Excluir</button>
+        </form>
+         @endif
+
       </td>
     </tr>
     @endforeach

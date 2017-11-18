@@ -44,6 +44,7 @@
       <td>
         <a href="{{ route('orderservices.edit', $orderservice['id']) }}" class="btn btn-primary">Editar</a>
         <a href="{{ route('orderservices.show', $orderservice['id']) }}" class="btn btn-info">ver</a>
+        <a href="{{ route('orcamentos.budget', $orcamento['id']) }}" class="btn btn-info">Orcamento</a>
       </td> 
       <td>
 

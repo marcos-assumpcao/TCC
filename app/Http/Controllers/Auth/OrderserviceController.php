@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\OrderService;
 use App\User;
+use App\Orcamento;
 
 class OrderserviceController extends Controller
 {
@@ -19,6 +20,9 @@ class OrderserviceController extends Controller
         $data['orderservices'] = OrderService::all();
         //dd($data['orderservices'][0]->user);
         return view('auth.orderservices.list_all', $data);
+        }elseif (Auth()->user()->grupo == 3) {
+            $data['orderservices'] = OrderService::where(['user_id' => Auth()->user()->id])->get();
+        }
     }
 
     /**

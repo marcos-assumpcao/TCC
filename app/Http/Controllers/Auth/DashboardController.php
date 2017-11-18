@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Orcamento;
+use App\OrderService;
+use App\User;
+
 
 class DashboardController extends Controller
 {
@@ -15,6 +19,9 @@ class DashboardController extends Controller
     public function index()
     {
         return view('auth.dashboard');
+        $data['orderservice'] = Orderservice::find($id);
+        $data['orcamento'] = Orcamento::find($id);
+        return view('auth.list', $data);
     }
 
     /**
