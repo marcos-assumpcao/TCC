@@ -28,6 +28,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
+                <!--===============================USUARIOS=================================-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuario</a>
                     <div class="dropdown-menu">
@@ -36,29 +37,30 @@
                         1 - Administrador
                         2 - Colaborador
                         3 - Usuario-->
-                        @if(Auth::user()->grupo == 1 && 2)
+                        @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                       <a class="dropdown-item" href="{{ route('users.create') }}">Criar</a>
                         @endif
+
                       <a class="dropdown-item" href="{{ route('users.index') }}">Ver Mais</a>
-                        @if(Auth::user()->grupo == 1 && 2)
+                        @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                     <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="{{ route('users.index') }}">Ver Tudo</a>
+                      <a class="dropdown-item" href="{{ route('users.list_user') }}">Ver Tudo</a>
                     </div>
                         @endif
                 </li>
+                <!--===========================ORDENS DE SERVIÇOS=============================-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ordem de Serviço</a>
                     <div class="dropdown-menu">               
                       <a class="dropdown-item" href="{{ route('orderservices.create') }}">Criar</a>
                       <a class="dropdown-item" href="{{ route('orderservices.index') }}">Ver Mais</a>
-                      @if(Auth::user()->grupo == 1 && 2)
+                      @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                     <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="{{ route('orderservices.index') }}">Ver Tudo</a>
+                      <a class="dropdown-item" href="{{ route('orderservices.list_orderservice') }}">Ver Tudo</a>
                     </div>
                     @endif
                 </li>
-                
-                
+                <!--=================================ORÇAMENTOS================================-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Orçamento</a>
                     <div class="dropdown-menu">
@@ -67,17 +69,17 @@
                     1 - Administrador
                     2 - Colaborador
                     3 - Usuario-->
-                    @if(Auth::user()->grupo == 1 && 2)
+                    @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                       <a class="dropdown-item" href="{{ route('orcamentos.create') }}">Criar</a>
                       @endif
-                      <a class="dropdown-item" href="{{ route('orcamentos.index') }}">Ver Mais</a>
-                      @if(Auth::user()->grupo == 1 && 2)
+                      <a class="dropdown-item" href="{{ route('orcamentos.list_orcamento') }}">Ver Mais</a>
+                      @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                     <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="{{ route('orcamentos.index') }}">Ver Tudo</a>
+                      <a class="dropdown-item" href="{{ route('orcamentos.list_orcamento') }}">Ver Tudo</a>
                     </div>
                     @endif
                 </li>
-                
+                <!--============================================================================-->
             <!--<li class="nav-item">
                 <a class="nav-link" href="#">Settings</a>
             </li>
@@ -87,6 +89,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Help</a>
             </li>-->
+
+            <!--===================================================================================-->
             <li class="nav-item">
                 <!--a class="nav-link" href="{{ route('logout')}}">Logout</a-->
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <font color= #FF6347> Logout </font></a>
@@ -104,9 +108,11 @@
 
 
             <ul class="nav nav-pills flex-column">
+                @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('users.create') }}">Criar Usuarios</a>
                 </li>
+                @endif
                 <!--<li class="nav-item">
                     <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
                 </li>-->
@@ -122,7 +128,7 @@
                 1 - Administrador
                 2 - Colaborador
                 3 - Usuario-->
-                @if(Auth::user()->grupo == 1 && 2)
+                @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('orcamentos.create') }}">Criar Orçamento</a>
                 </li>

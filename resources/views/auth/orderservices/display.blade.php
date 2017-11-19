@@ -11,6 +11,27 @@
       <td>{{ $orderservice['id'] }}</td> 
     </tr>
     <tr>
+  <!--Aprovação de Orçamento
+      ==========================
+      orcamentos[status]
+      0 - Aguardendo Atendimento
+      1 - Aguardando Aprovação
+      2 - Aprovado
+      3 - Reprovado-->
+      <td>Status:</td>
+      @if($orderservice['status']  == 0)
+      <td><font color=#0000CD>Aguardando Atendimento</font></td>
+      @elseif($orderservice['status']  == 1)
+      <td><font color=#FFA500>Em Atendimento</font></td>
+      @elseif($orderservice['status']  == 2)
+      <td><font color=#FFA500>Aguardando Aprovação</font></td>
+      @elseif($orderservice['status']  == 3)
+      <td><font color=#32CD32>Aprovado</font></td>
+      @elseif($orderservice['status']  == 4)
+      <td><font color=#FF0000>Reprovado</font></td>
+      @endif
+    </tr>
+    <tr>
       <td>Cliente:</td>
       <td>{{ $orderservice->user->name }}</td> 
     </tr>

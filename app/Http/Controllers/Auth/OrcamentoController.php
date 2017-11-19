@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Orcamento;
+use App\User;
 use App\OrderService;
 
 class OrcamentoController extends Controller
@@ -16,21 +17,8 @@ class OrcamentoController extends Controller
      */
     public function index()
     {
-        /**
-         * Grupos de Usuario
-         * =====================
-         * 1 - Administrador
-         * 2 - Colaborador
-         * 3 - Usuario
-         */
-        if(Auth()->user()->grupo == 1 && 2){
-            $data['orcamentos'] = Orcamento::all();
-            //dd($data);
-            return view('auth.orcamentos.list_all', $data);
-        }ifelse(Auth()->user()->grupo == 3) {
-            $data['orcamentos'] = Orcamento::where(['order_service_id' => Auth()->user()->id])->get();
-        } 
-           
+        $data['orcamentos'] = Orcamento::where(['id' => Auth()->user()->id])->get();
+        return view('auth.orcamentos.list_all', $data);
     }
 
     /**
@@ -109,5 +97,20 @@ class OrcamentoController extends Controller
     {
         $data['orcamento'] = Orcamento::find($id);
         return view('auth.orcamentos.budget', $data);
+    }
+
+    public function list_orcamento()
+    {
+        /**
+         * Grupos de Usuario
+         * =====================
+         * 1 - Administrador
+         * 2 - Colaborador
+         * 3 - Usuario
+         */
+        if(Auth()->user()->grupo == 1 OR 2){
+            $data['orcamentos'] = Orcamento::all();
+            return view('auth.orcamentos.list_all', $data);
+        }
     }
 }

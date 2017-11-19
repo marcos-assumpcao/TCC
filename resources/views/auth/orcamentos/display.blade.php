@@ -15,6 +15,10 @@
       <td>{{ $orcamento->order_service_id }}</td>
     </tr>-->
     <tr>
+      <td>Cliente:</td>
+      <td>{{ 'Jessica Bratz' }}</td> 
+    </tr>
+    <tr>
       <td>Data Inicial:</td>
       <td>{{ $orcamento->data }}</td>
     </tr>

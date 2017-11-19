@@ -17,12 +17,8 @@ class OrderserviceController extends Controller
      */
     public function index()
     {
-        $data['orderservices'] = OrderService::all();
-        //dd($data['orderservices'][0]->user);
+        $data['orderservices'] = OrderService::where(['user_id' => Auth()->user()->id])->get();
         return view('auth.orderservices.list_all', $data);
-        }elseif (Auth()->user()->grupo == 3) {
-            $data['orderservices'] = OrderService::where(['user_id' => Auth()->user()->id])->get();
-        }
     }
 
     /**
@@ -96,5 +92,20 @@ class OrderserviceController extends Controller
     {
         Orderservice::destroy($id);
         return redirect()->route('orderservices.index');
+    }
+
+    public function list_orderservice()
+    {
+        /**
+         * Grupos de Usuario
+         * =====================
+         * 1 - Administrador
+         * 2 - Colaborador
+         * 3 - Usuario
+         */
+        if(Auth()->user()->grupo == 1 OR 2){
+            $data['orderservices'] = OrderService::all();
+            return view('auth.orderservices.list_all', $data);
+        }
     }
 }

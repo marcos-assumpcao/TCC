@@ -2,7 +2,11 @@
 
 @section('content')
 
-<h1>Listagem de usuarios <!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
+@if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
+<h1>Listagem de usuarios</h1>
+@elseif(Auth::user()->grupo == 3)
+<h1>Usuario Logado</h1>
+@endif
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
           <table class="table">
@@ -48,7 +52,7 @@
       <td>{{ $user['fax'] }}</td>-->
       <td>{{ $user['email'] }}</td>
       <td>
-        <a href="{{ route('users.edit', $user['id']) }}" class="btn btn-primary">Editar</a>
+        <a href="{{ route('users.edit', $user['id']) }}" class="btn btn-secondary">Editar</a>
         <a href="{{ route('users.show', $user['id']) }}" class="btn btn-info">ver</a>
       <td>
         

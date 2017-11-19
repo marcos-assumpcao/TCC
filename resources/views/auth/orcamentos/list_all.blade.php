@@ -34,23 +34,22 @@
       <td>{{ $orcamento['total'] }}</td>
       <td>
         <!--Aprovação de Orçamento
-      ==========================
-      orcamentos[status]
-      0 - Aguardendo Atendimento
-      1 - Aguardando Aprovação
-      2 - Aprovado
-      3 - Reprovado-->
-      
+        ==========================
+        orcamentos[status]
+        0 - Aguardendo Atendimento
+        1 - Aguardando Aprovação
+        2 - Aprovado
+        3 - Reprovado-->
         @if($orcamento['status']  == 1)
-        <a href="{{ route('orcamentos.approve', $orcamento['id']) }}" class="btn btn-success">Orçamento</a>
+        <a href="{{ route('orcamentos.approve', $orcamento['id']) }}" class="btn btn-primary">Orçamento</a>
         @endif
         <!--Grupos de Usuario
         =====================
         1 - Administrador
         2 - Colaborador
         3 - Usuario-->
-        @if(Auth::user()->grupo == 1 && 2)
-        <a href="{{ route('orcamentos.edit', $orcamento['id']) }}" class="btn btn-primary">Editar</a>
+        @if(Auth::user()->grupo == 1 OR 2)
+        <a href="{{ route('orcamentos.edit', $orcamento['id']) }}" class="btn btn-secondary">Editar</a>
         @endif
         <a href="{{ route('orcamentos.show', $orcamento['id']) }}" class="btn btn-info">ver</a>
       </td>

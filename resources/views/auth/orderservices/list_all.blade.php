@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Listagem de Ordens de Serviços <!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
+<h1>Ordens de Serviços</h1>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <table class="table">
   <thead>
@@ -42,11 +42,13 @@
       <td>{{ $orderservice['patrimonio'] }}</td>
       <td>{{ $orderservice['chamado'] }}</td>-->
       <td>
-        <a href="{{ route('orderservices.edit', $orderservice['id']) }}" class="btn btn-primary">Editar</a>
+        @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
+        <a href="#" class="btn btn-primary">Atender</a>
+        @endif
+        <a href="{{ route('orderservices.edit', $orderservice['id']) }}" class="btn btn-secondary">Editar</a>
         <a href="{{ route('orderservices.show', $orderservice['id']) }}" class="btn btn-info">ver</a>
       </td> 
       <td>
-
         <!--Grupos de Usuario
         =====================
         1 - Administrador

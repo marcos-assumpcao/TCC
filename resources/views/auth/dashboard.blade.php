@@ -26,7 +26,7 @@
               <span class="text-muted">Something else</span>
             </div>
           </section>
-
+          <!--
           <h2>Section title</h2>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -154,5 +154,5 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div>-->
 @endsection

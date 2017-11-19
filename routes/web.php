@@ -22,8 +22,11 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Auth')->group(function 
     Route::resource('users', 'UserController');
     Route::resource('orderservices', 'OrderserviceController');
     Route::resource('orcamentos', 'OrcamentoController');
-    Route::get('approve/{id}', 'OrcamentoController@approve')->name('orcamentos.approve');
 
+    Route::get('approve/{id}', 'OrcamentoController@approve')->name('orcamentos.approve');
+    Route::get('list_orcamento', 'OrcamentoController@list_orcamento')->name('orcamentos.list_orcamento'); 
+    Route::get('list_orderservice', 'OrderserviceController@list_orderservice')->name('orderservices.list_orderservice'); 
+    Route::get('list_user', 'UserController@list_user')->name('users.list_user');
 });
 
 Route::get('/', 'HomeController@index')->name('home');

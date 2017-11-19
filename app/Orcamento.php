@@ -11,4 +11,9 @@ class Orcamento extends Model
     protected $fillable = [
     	'order_service_id', 'data', 'aprovacao', 'entrega', 'defeito', 'servico', 'preco', 'total',
     ];
+
+    public function orderservice()
+    {
+        return $this->belongsTo('App\OrderService');
+    }
 }
