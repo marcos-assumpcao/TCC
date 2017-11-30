@@ -98,7 +98,11 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
             </li>
         </ul>
-
+        <ul class="navbar-nav">
+            <li class="nav-item active navbar-right">
+                <a class="nav-link" href="#">{{ Auth()->user()->name }}<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
     </div>
 </nav>
 

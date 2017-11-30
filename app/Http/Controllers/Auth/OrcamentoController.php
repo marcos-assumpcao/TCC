@@ -22,7 +22,7 @@ class OrcamentoController extends Controller
         foreach($orc as $gg){
             $data['orcamentos'][] = $gg->orcamentos;
         }
-//dd( $data['orcamentos']);
+        //dd( $data['orcamentos']);
         return view('auth.orcamentos.list_all', $data);
     }
 
