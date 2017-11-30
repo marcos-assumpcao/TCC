@@ -7,10 +7,10 @@
 @elseif(Auth::user()->grupo == 3)
 <h1>Usuario Logado</h1>
 @endif-->
-<h1>Usuario Logado</h1>
+<h1>Listagem de usuarios</h1>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-          <table class="table">
+<table class="table">
   <thead>
     <tr>
       <th>ID</th>
@@ -54,7 +54,6 @@
       <td>{{ $user['email'] }}</td>
       <td>
         <a href="{{ route('users.edit', $user['id']) }}" class="btn btn-secondary">Editar</a>
-        <a href="{{ route('users.senha', $user['id']) }}" class="btn btn-secondary">Mudar Senha</a>
         <a href="{{ route('users.show', $user['id']) }}" class="btn btn-info">ver</a>
       <td>
         

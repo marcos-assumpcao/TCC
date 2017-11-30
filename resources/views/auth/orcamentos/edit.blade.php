@@ -12,7 +12,7 @@
                 <label for="orderservices" class="col-md-4 control-label">Ordem de Serviço</label>
 
                 <div class="col-md-6">
-                    <input id="orderservices" type="text" class="form-control" name="orderservices" value="{{ $orcamento['order_service_id'] }}" required autofocus>
+                    <input id="orderservices" type="text" class="form-control" disabled="disabled" name="orderservices" value="{{ $orcamento['order_service_id'] }}" required autofocus>
 
                     @if ($errors->has('orderservices'))
                     <span class="help-block">
@@ -31,20 +31,6 @@
                     @if ($errors->has('data'))
                     <span class="help-block">
                         <strong>{{ $errors->first('data') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('aprovacao') ? ' has-error' : '' }}">
-                <label for="aprovacao" class="col-md-4 control-label">Data de Aprovação</label>
-
-                <div class="col-md-6">
-                    <input id="aprovacao" type="text" class="form-control" name="aprovacao" value="{{ ($orcamento['aprovacao']) }}" required autofocus>
-
-                    @if ($errors->has('aprovacao'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('aprovacao') }}</strong>
                     </span>
                     @endif
                 </div>

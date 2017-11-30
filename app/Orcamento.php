@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\Orcamento as Authenticatable;
 class Orcamento extends Model
 {
     protected $fillable = [
-    	'order_service_id', 'data', 'aprovacao', 'entrega', 'defeito', 'servico', 'preco', 'total',
+    	'order_service_id', 'data', 'aprovacao', 'entrega', 'defeito', 'servico', 'preco', 'total', 'status', 'responsavel'
     ];
 
     public function orderservice()

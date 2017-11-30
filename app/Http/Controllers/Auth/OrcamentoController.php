@@ -17,7 +17,12 @@ class OrcamentoController extends Controller
      */
     public function index()
     {
-        $data['orcamentos'] = Orcamento::where(['id' => Auth()->user()->id])->get();
+        $orc = OrderService::with('orcamentos')->where(['user_id' => Auth()->user()->id])->get();
+        //dd($data['orcamentos'][0]->orcamentos);
+        foreach($orc as $gg){
+            $data['orcamentos'][] = $gg->orcamentos;
+        }
+//dd( $data['orcamentos']);
         return view('auth.orcamentos.list_all', $data);
     }
 
@@ -28,7 +33,7 @@ class OrcamentoController extends Controller
      */
     public function create()
     {
-        $data['orderservices'] = OrderService::all();
+        $data['orderservices'] = OrderService::where('status', 1)->get();
         return view('auth.orcamentos.create', $data);
     }
 
@@ -41,6 +46,7 @@ class OrcamentoController extends Controller
     public function store(Request $request)
     {
         $orcamento = Orcamento::create($request->all());
+        OrderService::find($orcamento['order_service_id'])->update(['status' => 2]);
         return redirect()->route('orcamentos.edit', ['id' => $orcamento->id]);
     }
 
@@ -110,7 +116,22 @@ class OrcamentoController extends Controller
          */
         if(Auth()->user()->grupo == 1 OR 2){
             $data['orcamentos'] = Orcamento::all();
-            return view('auth.orcamentos.list_all', $data);
+            return view('auth.orcamentos.list_tudo', $data);
         }
+    }
+
+    public function aprovar($id, $id2, $status){
+        $data = date('d/m/Y');
+        $ghjk = Orcamento::find($id);
+        $ghjk->update(['status' => $status, 'aprovacao' => $data]);
+
+
+        $ghjs = OrderService::find($id2);
+        $ghjs->update(['status' => $status]);
+
+        //$ghjp = Orcamento::find($id);
+        //$ghjp->update(['aprovacao' => $aprovacao]);
+        
+        return redirect()->route('orcamentos.approve', ['id' => $id]);
     }
 }

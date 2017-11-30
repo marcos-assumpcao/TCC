@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Orçamento da Ordem de Serviço: {{ $orcamento->order_service_id }}<!--<a href="#" type="button" class="btn btn-success float-right">Novo</a>--></h1>
+<h1>Orçamento - Ordem de Serviço: {{ $orcamento->order_service_id }}</h1>
 
 <table class="table">
   <thead>
@@ -16,28 +16,31 @@
     </tr>-->
     <tr>
       <td>Cliente:</td>
-      <td>{{ 'Jessica Bratz' }}</td> 
+      <td>{{ Auth()->user()->name }}</td> 
+    </tr>
+    <tr>
+      <td>Responsavel Técnico:</td>
+      <td>{{ $orcamento->responsavel }}</td> 
     </tr>
     <tr>
       <td>Data Inicial:</td>
       <td>{{ $orcamento->data }}</td>
     </tr>
     <tr>
-  <!--Aprovação de Orçamento
+      <!--Aprovação de Orçamento
       ==========================
       orcamentos[status]
       0 - Aguardendo Atendimento
-      1 - Aguardando Aprovação
-      2 - Aprovado
-      3 - Reprovado-->
+      1 - Aguardando Orçamento
+      2 - Aguardando aprovação
+      3 - Aprovado
+      4 - Reprovado-->
       <td>Status:</td>
-      @if($orcamento['status']  == 0)
-      <td><font color=#0000CD>Aguardando Atendimento</font></td>
-      @elseif($orcamento['status']  == 1)
+      @if($orcamento['status']  == 2)
       <td><font color=#FFA500>Aguardando Aprovação</font></td>
-      @elseif($orcamento['status']  == 2)
-      <td><font color=#32CD32>Aprovado</font></td>
       @elseif($orcamento['status']  == 3)
+      <td><font color=#32CD32>Aprovado</font></td>
+      @elseif($orcamento['status']  == 4)
       <td><font color=#FF0000>Reprovado</font></td>
       @endif
     </tr>

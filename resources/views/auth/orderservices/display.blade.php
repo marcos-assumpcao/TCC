@@ -13,11 +13,12 @@
     <tr>
   <!--Aprovação de Orçamento
       ==========================
-      orcamentos[status]
+      orderservices[status]
       0 - Aguardendo Atendimento
-      1 - Aguardando Aprovação
-      2 - Aprovado
-      3 - Reprovado-->
+      1 - Em atendimento 
+      2 - Aguardando aprovação
+      3 - Aprovado
+      4 - Reprovado-->
       <td>Status:</td>
       @if($orderservice['status']  == 0)
       <td><font color=#0000CD>Aguardando Atendimento</font></td>

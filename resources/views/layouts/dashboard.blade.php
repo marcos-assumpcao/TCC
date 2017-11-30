@@ -72,7 +72,7 @@
                     @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                       <a class="dropdown-item" href="{{ route('orcamentos.create') }}">Criar</a>
                       @endif
-                      <a class="dropdown-item" href="{{ route('orcamentos.list_orcamento') }}">Ver Mais</a>
+                      <a class="dropdown-item" href="{{ route('orcamentos.index') }}">Ver Mais</a>
                       @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                     <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="{{ route('orcamentos.list_orcamento') }}">Ver Tudo</a>
@@ -128,11 +128,17 @@
                 1 - Administrador
                 2 - Colaborador
                 3 - Usuario-->
+                
                 @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('orcamentos.create') }}">Criar Orçamento</a>
                 </li>
                 @endif
+                <!--@if(Auth::user()->orcamento['status'] == 2)
+                     <li class="nav-item">
+                    <a class="nav-link" href="{{ route('orcamentos.create') }}">Criar Orçamento</a>
+                </li>
+                @endif-->
                 <!--<li class="nav-item">
                     <a class="nav-link" href="{{ route('orcamentos.index') }}">Orçamentos</a>
                 </li>-->

@@ -4,6 +4,10 @@
 
           <h1>Dashboard Alfatek Informática</h1>
 
+          <!--<br><br>
+            <div align="center"><img src="assets/images/logo3.jpg"></div>
+          <br><br>-->
+
           <section class="row text-center placeholders">
             <div class="col-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">

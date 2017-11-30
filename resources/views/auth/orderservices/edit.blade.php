@@ -14,7 +14,7 @@
 
                 <div class="col-md-6">
 
-                    <select name="user_id" class="form-control">
+                    <select name="user_id" disabled="disabled" class="form-control">
                         @foreach($users as $user)
                             <option value="{{ $user->id }}" 
 

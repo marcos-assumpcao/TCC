@@ -27,7 +27,11 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Auth')->group(function 
     Route::get('list_orcamento', 'OrcamentoController@list_orcamento')->name('orcamentos.list_orcamento'); 
     Route::get('list_orderservice', 'OrderserviceController@list_orderservice')->name('orderservices.list_orderservice'); 
     Route::get('list_user', 'UserController@list_user')->name('users.list_user');
+    Route::get('aprovar/{id}/{id2}/{status}', 'OrcamentoController@aprovar')->name('orcamentos.aprovar');
+    Route::get('atender/{id}/{status}', 'OrderserviceController@atender')->name('orderservices.atender');
+    Route::get('senha/{id}', 'UserController@senha')->name('users.senha');
+    Route::put('updatesenha/{id}', 'UserController@updatesenha')->name('users.updatesenha');
+
 });
 
-Route::get('/', 'HomeController@index')->name('home');
-//Route::get('orcamentos', 'OrcamentoController@approve'); 
+Route::get('/', 'HomeController@index')->name('home'); 

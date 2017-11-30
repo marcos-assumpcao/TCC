@@ -108,4 +108,29 @@ class OrderserviceController extends Controller
             return view('auth.orderservices.list_all', $data);
         }
     }
+
+    public function atender($id, $status){
+
+        $ghjk = OrderService::find($id);
+        $ghjk->update(['status' => $status]);
+
+      
+        //$ds = $order_service_id;
+
+        //$ghjs = Orcamento::find($ds);
+        //$ghjs->update(['status' => $status]);
+
+        //$ghjk->Orcamento()->update(['status' => $status]);
+
+
+        //$ghjk->orderservice()->update(['status' => $status]);
+
+        if(Auth()->user()->grupo == 1 OR 2){
+            $data['orderservices'] = OrderService::all();
+            return view('auth.orderservices.list_all', $data);
+        }elseif (Auth()->user()->grupo == 3) {
+            $data['orderservices'] = OrderService::where(['user_id' => Auth()->user()->id])->get();
+        return view('auth.orderservices.list_all', $data);
+        }
+    }
 }

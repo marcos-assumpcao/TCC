@@ -2,12 +2,47 @@
 
 @section('content')
 
-<h1>Novo Orçamento <!--<a href="#" type="button" class="btn btn-success float-right">Salvar</a>--></h1>
+<h1>Novo Orçamento</h1>
+
 <div class="panel panel-default">
     <div class="panel-body">
         <form class="form-horizontal" method="POST" action="{{ route('orcamentos.store') }}">
             {{ csrf_field() }}
 
+            <!--<table class="table">
+             @foreach($orderservices as $orderservice)
+             <thead>
+                <tr>
+                  <td>Cliente:</td>
+                  <td>{{ $orderservice->user->name }}</td> 
+              </tr>
+              <tr>
+                  <td>Equipamento:</td>
+                  <td>{{ $orderservice['equipamento'] }}</td> 
+              </tr>
+              <tr>
+                  <td>Marca:</td>
+                  <td>{{ $orderservice['marca'] }}</td> 
+              </tr>
+              <tr>
+                  <td>Defeito:</td>
+                  <td>{{ $orderservice['defeito'] }}</td> 
+              </tr>
+              <tr>
+                  <td>Modelo:</td>
+                  <td>{{ $orderservice['modelo'] }}</td> 
+              </tr>
+          </thead>
+          @endforeach
+          <tbody>-->
+            <!--Orçamento
+            ==========================
+            orcamentos[status]
+            0 - Aguardendo Atendimento
+            1 - Aguardando Orçamento
+            2 - Aguardando aprovação
+            3 - Aprovado
+            4 - Reprovado-->
             <div class="form-group{{ $errors->has('order_service_id') ? ' has-error' : '' }}">
                 <label for="order_service_id" class="col-md-4 control-label">Ordem de Serviço</label>
 
@@ -15,7 +50,7 @@
 
                     <select name="order_service_id" class="form-control">
                         @foreach($orderservices as $orderservice)
-                            <option value="{{ $orderservice->id }}">{{ $orderservice->id }}</option>
+                        <option value="{{ $orderservice->id }}">{{ $orderservice->id }}</option>
                         @endforeach
                     </select>
 
@@ -36,20 +71,6 @@
                     @if ($errors->has('data'))
                     <span class="help-block">
                         <strong>{{ $errors->first('data') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('aprovacao') ? ' has-error' : '' }}">
-                <label for="aprovacao" class="col-md-4 control-label">Data de Aprovação</label>
-
-                <div class="col-md-6">
-                    <input id="aprovacao" type="text" class="form-control" name="aprovacao" value="{{ old('aprovacao') }}" required autofocus>
-
-                    @if ($errors->has('aprovacao'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('aprovacao') }}</strong>
                     </span>
                     @endif
                 </div>

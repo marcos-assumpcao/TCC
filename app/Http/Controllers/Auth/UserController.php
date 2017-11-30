@@ -77,8 +77,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //$dados = $request->all();
+        //$dados['password'] = bcrypt($dados['password']);
         $user = User::find($id)->update($request->all());
-        return redirect()->route('users.edit', ['id' => $id]);
+        return redirect()->route('users.show', ['id' => $id]);
     }
 
     /**
@@ -96,6 +98,23 @@ class UserController extends Controller
     public function list_user()
     {
         $data['users'] = User::all();
-        return view('auth.users.list_all', $data);
+        return view('auth.users.list_tudo', $data);
+    }
+
+    public function senha($id){
+        //$dados = $request->all();
+        //$dados['password'] = bcrypt($dados['password']);
+        //$user = User::find($id)->update($request->all());
+        //return redirect()->route('users.senha', ['id' => $id]);
+        $data['user'] = User::find($id);
+        return view('auth.users.senha', $data);
+    }
+
+    public function updatesenha(Request $request, $id)
+    {
+        $dados = $request->all();
+        $dados['password'] = bcrypt($dados['password']);
+        $user = User::find($id)->update($dados);
+        return redirect()->route('users.show', ['id' => $id]);
     }
 }

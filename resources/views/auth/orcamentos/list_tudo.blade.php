@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Orçamentos do Cliente</h1>
+<h1>Orçamentos dos Clientes</h1>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <table class="table">
   <thead>
@@ -21,11 +21,10 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($orcamentos as $orca)
-    @foreach($orca as $orcamento)
+    @foreach($orcamentos as $orcamento)
     <tr>
       <th scope="row">{{ $orcamento['id'] }}</th>
-      <td>{{ $orcamento -> order_service_id }}</td>
+      <td>{{ $orcamento['order_service_id'] }}</td>
       <td>{{ $orcamento['data'] }}</td>
       <!--<td>{{ $orcamento['aprovacao'] }}</td>
       <td>{{ $orcamento['entrega'] }}</td>
@@ -42,15 +41,23 @@
         2 - Aguardando aprovação
         3 - Aprovado
         4 - Reprovado-->
-        @if($orcamento['status']  == 2)
+        <!--@if($orcamento['status']  == 2)
         <a href="{{ route('orcamentos.approve', $orcamento['id']) }}" class="btn btn-primary">Orçamento</a>
-        @endif
+        @endif-->
         <!--Grupos de Usuario
         =====================
         1 - Administrador
         2 - Colaborador
         3 - Usuario-->
         @if(Auth::user()->grupo == 1 OR 2)
+        <!--Aprovação de Orçamento
+        ==========================
+        orderservices[status]
+        0 - Aguardendo Atendimento
+        1 - Em atendimento 
+        2 - Aguardando aprovação
+        3 - Aprovado
+        4 - Reprovado-->
         @if($orcamento['status'] != 3 && $orcamento['status'] != 4)
         <a href="{{ route('orcamentos.edit', $orcamento['id']) }}" class="btn btn-secondary">Editar</a>
         @endif
@@ -73,7 +80,6 @@
 
       </td>
     </tr>
-    @endforeach
     @endforeach
   </tbody>
 </table>

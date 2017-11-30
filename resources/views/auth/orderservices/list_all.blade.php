@@ -26,7 +26,6 @@
   </thead>
   <tbody>
     @foreach($orderservices as $orderservice)
-    
     <tr>
       <th scope="row">{{ $orderservice['id'] }}</th>
       <td>{{ $orderservice->user->name }}</td>
@@ -41,11 +40,38 @@
       <td>{{ $orderservice['ano'] }}</td>
       <td>{{ $orderservice['patrimonio'] }}</td>
       <td>{{ $orderservice['chamado'] }}</td>-->
+
+        <!--Aprovação de Orçamento
+        ==========================
+        orcamentos[status]
+        0 - Aguardendo Atendimento
+        1 - Aguardando Orçamento
+        2 - Aguardando aprovação
+        3 - Aprovado
+        4 - Reprovado-->
+
+        <!--Atendimento
+        ==========================
+        orderservices[status]
+        0 - Aguardendo Atendimento
+        1 - Em atendimento 
+        2 - Aguardando aprovação
+        3 - Aprovado
+        4 - Reprovado-->
       <td>
         @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
-        <a href="#" class="btn btn-primary">Atender</a>
+        @if($orderservice['status']  == 0)
+        <a href="{{  route('orderservices.atender', ['status' => 1, 'id' => $orderservice->id] ) }}" class="btn btn-primary">Atender</a>
         @endif
+        @endif
+        <!--@if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
+        @if($orderservice['status']  == 1)
+        <a href="{{ route('orcamentos.create') }}" class="btn btn-primary">Criar Orçamento</a>
+        @endif
+        @endif-->
+        @if($orderservice['status'] != 3 && $orderservice['status'] != 4)
         <a href="{{ route('orderservices.edit', $orderservice['id']) }}" class="btn btn-secondary">Editar</a>
+        @endif
         <a href="{{ route('orderservices.show', $orderservice['id']) }}" class="btn btn-info">ver</a>
       </td> 
       <td>

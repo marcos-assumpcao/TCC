@@ -13,11 +13,13 @@
 
                 <div class="col-md-6">
 
-                    <select name="user_id" class="form-control">
+                    <!--<select name="user_id" class="form-control">
                         @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                           <option value="{{ $user->id }}">{{ $user->name }}</option>
                         @endforeach
-                    </select>
+                    </select>-->
+                    {{ Auth()->user()->name }}
+                    <input type="hidden"  value="{{ Auth()->user()->id }}" class="form-control" name="user_id">
 
                     @if ($errors->has('user_id'))
                     <span class="help-block">
