@@ -10,6 +10,7 @@
       <th>ID</th>
       <th>Ordem de Serviço</th>
       <th>Data Inicial</th>
+      <th>Status</th>
       <!--<th>Data de Aprovação</th>
       <th>Data de Entrega</th>
       <th>Defeito</th>
@@ -27,6 +28,21 @@
       <th scope="row">{{ $orcamento['id'] }}</th>
       <td>{{ $orcamento -> order_service_id }}</td>
       <td>{{ $orcamento['data'] }}</td>
+      <!--Aprovação de Orçamento
+      ==========================
+      orcamentos[status]
+      0 - Aguardendo Atendimento
+      1 - Aguardando Orçamento
+      2 - Aguardando aprovação
+      3 - Aprovado
+      4 - Reprovado-->
+      @if($orcamento['status']  == 2)
+        <td><font color=#FFA500>Aguardando Aprovação</font></td>
+      @elseif($orcamento['status']  == 3)
+        <td><font color=#32CD32>Aprovado</font></td>
+      @elseif($orcamento['status']  == 4)
+        <td><font color=#FF0000>Reprovado</font></td>
+      @endif
       <!--<td>{{ $orcamento['aprovacao'] }}</td>
       <td>{{ $orcamento['entrega'] }}</td>
       <td>{{ $orcamento['defeito'] }}</td>
@@ -50,7 +66,7 @@
         1 - Administrador
         2 - Colaborador
         3 - Usuario-->
-        @if(Auth::user()->grupo == 1 OR 2)
+        @if(Auth::user()->grupo == 1 OR Auth::user()->grupo == 2)
         @if($orcamento['status'] != 3 && $orcamento['status'] != 4)
         <a href="{{ route('orcamentos.edit', $orcamento['id']) }}" class="btn btn-secondary">Editar</a>
         @endif

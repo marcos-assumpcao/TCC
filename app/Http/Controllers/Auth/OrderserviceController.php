@@ -41,7 +41,7 @@ class OrderserviceController extends Controller
     public function store(Request $request)
     {
         $orderservice = OrderService::create($request->all());
-        return redirect()->route('orderservices.edit', ['id' => $orderservice->id]);
+        return redirect()->route('orderservices.show', ['id' => $orderservice->id]);
     }
 
     /**
@@ -91,7 +91,7 @@ class OrderserviceController extends Controller
     public function destroy($id)
     {
         Orderservice::destroy($id);
-        return redirect()->route('orderservices.index');
+        return redirect()->route('orderservices.list_orderservice');
     }
 
     public function list_orderservice()
@@ -114,15 +114,10 @@ class OrderserviceController extends Controller
         $ghjk = OrderService::find($id);
         $ghjk->update(['status' => $status]);
 
-      
         //$ds = $order_service_id;
-
         //$ghjs = Orcamento::find($ds);
         //$ghjs->update(['status' => $status]);
-
         //$ghjk->Orcamento()->update(['status' => $status]);
-
-
         //$ghjk->orderservice()->update(['status' => $status]);
 
         if(Auth()->user()->grupo == 1 OR 2){

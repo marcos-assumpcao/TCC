@@ -47,7 +47,7 @@ class OrcamentoController extends Controller
     {
         $orcamento = Orcamento::create($request->all());
         OrderService::find($orcamento['order_service_id'])->update(['status' => 2]);
-        return redirect()->route('orcamentos.edit', ['id' => $orcamento->id]);
+        return redirect()->route('orcamentos.show', ['id' => $orcamento->id]);
     }
 
     /**
@@ -96,7 +96,7 @@ class OrcamentoController extends Controller
     public function destroy($id)
     {
         Orcamento::destroy($id);
-        return redirect()->route('orcamentos.index');
+        return redirect()->route('orcamentos.list_orcamento');
     }
 
     public function approve ($id)

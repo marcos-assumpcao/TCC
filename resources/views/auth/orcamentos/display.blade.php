@@ -45,8 +45,18 @@
       @endif
     </tr>
     <tr>
+      @if($orcamento['status']  == 2)
       <td>Data de Aprovação:</td>
       <td>{{ $orcamento->aprovacao }}</td>
+      @endif
+      @if($orcamento['status']  == 3)
+      <td>Data de Aprovação:</td>
+      <td>{{ $orcamento->aprovacao }}</td>
+      @endif
+      @if($orcamento['status']  == 4)
+      <td>Data de Reprovação:</td>
+      <td>{{ $orcamento->aprovacao }}</td>
+      @endif
     </tr>
     <tr>
       <td>Data de Entrega:</td>
